@@ -1,0 +1,21 @@
+#guest_guess{
+    text-align: center;
+ 
+
+}
+/* input::placeholder{
+    color: red;
+} */
+body{
+ 
+    align-items: center;
+    justify-content: center;
+
+    background-image: url("d.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+display: flex;
+height: 100vh;
+
+}
