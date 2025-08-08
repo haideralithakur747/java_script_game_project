@@ -17,18 +17,18 @@ function checkGuess() {
     result.innerText ="Sorry, you've used all your attempts. The number was " + number + ".";
   } 
 
-  else if ( guessnumber.value <= number + 10) {
-    result.innerText = "🤏 Just 10 off! You're getting warmer attempts left: " + (maxattempt - attempts);
+  else if ( guessnumber.value < number && number - guessnumber.value <= 10) {
+    result.innerText = "🤏 You're less than 10 BELOW the number. Just a bit more! attempts left: " + (maxattempt - attempts);
+  }
+
+  else if (guessnumber.value > number && guessnumber.value - number <= 10) {
+    result.innerText = "🤏  You're less than 10 ABOVE the number. Lower it a little! attempts left: " + (maxattempt - attempts);
   }
   
-  else if (guessnumber.value >= number - 10 ) {
-    result.innerText = "🤏 Just 10 above! lower it a bit attempts left: " + (maxattempt - attempts);
-  }
-  
-   else if (guessnumber.value >= number - 25 ) {
+   else if (guessnumber.value > number && guessnumber.value - number <= 25 ) {
     result.innerText = "🤏 Just 25 above! lower it a bit attempts left: " + (maxattempt - attempts);
    }
-   else if (guessnumber.value <= number + 25) {
+   else if (guessnumber.value < number && number - guessnumber.value <= 25) {
     result.innerText = "🤏 Just 25 off! You're getting warmer attempts left: " + (maxattempt - attempts);
    }
   
