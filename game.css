@@ -28,3 +28,7 @@ body {
   display: flex;
   height: 100vh;
 }
+#result{
+    font-size: large;
+    font-weight: bold;
+}

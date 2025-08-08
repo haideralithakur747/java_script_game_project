@@ -5,37 +5,41 @@ function checkGuess() {
   let guessnumber = document.getElementById("guess");
   let result = document.getElementById("result");
     if (!guessnumber.value || guessnumber.value < 1 || guessnumber.value > 100 || isNaN(guessnumber.value)) {
-      alert("Invalid input. Please enter a number between 1 and 100.");
-      return;
+       result.innerText = "Invalid input. Please enter a valid number.";
+       return;
     }
 
   attempts++;
   
   if (guessnumber.value == number) {
-    alert("Congratulations! You guessed the right number.");
+    result.innerText = "Congratulations! You guessed the right number.";
   } else if (attempts > maxattempt) {
-    alert(
-      "Sorry, you've used all your attempts. The number was " + number + "."
-    );
-  } else if (!guessnumber.value||guessnumber.value < 1 || guessnumber.value > 100) {
-    alert("Please enter a number between 1 and 100.");
+    result.innerText ="Sorry, you've used all your attempts. The number was " + number + ".";
   } 
-  else if (guessnumber.value >= number - 10 && guessnumber.value <= number + 10) {
-    alert("You're very close! Try again.");
-  } 
+
+  else if ( guessnumber.value <= number + 10) {
+    result.innerText = "🤏 Just 10 off! You're getting warmer attempts left: " + (maxattempt - attempts);
+  }
   
-   else if (guessnumber.value >= number - 25 && guessnumber.value <= number + 25) {
-    alert("You're  close! Try again.");
+  else if (guessnumber.value >= number - 10 ) {
+    result.innerText = "🤏 Just 10 above! lower it a bit attempts left: " + (maxattempt - attempts);
+  }
+  
+   else if (guessnumber.value >= number - 25 ) {
+    result.innerText = "🤏 Just 25 above! lower it a bit attempts left: " + (maxattempt - attempts);
+   }
+   else if (guessnumber.value <= number + 25) {
+    result.innerText = "🤏 Just 25 off! You're getting warmer attempts left: " + (maxattempt - attempts);
    }
   
   
   else if (guessnumber.value < number) {
-    alert("Your guess is too low. Try again!");
+    result.innerText = "Your guess is too low. Try again! attempts left: " + (maxattempt - attempts);
   } else if (guessnumber.value > number) {
-    alert("Your guess is too far. Try again!");
+    result.innerText = "Your guess is too far. Try again! attempts left: " + (maxattempt - attempts);
   }
   else{
-    alert("Invalid input. Please enter a valid number.");
+    result.innerText = "Invalid input. Please enter a valid number.";
   }
  
 }
